@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Safer Driving Schools </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Tyler SDS"> <!-- Fixed: Removed extra > -->
+<link rel="stylesheet" href="style.css">
+<style>
+   h1 {
+    font-size: 2.5rem; /* Adjust the size of the heading */
+    color: black;
+   }
+
+   p { 
+    font-size: 1rem; /* Adjust the size of the paragraphs */
+    line-height: 1.8; /* Optional: Adjust line spacing for better readability */
+    color: rgb(255, 255, 255); /* Ensure paragraph text is black */
+   }
+
+   .welcome-text {
+    color: white; /* Set the text color to white */
+   }
+
+   .footer p { 
+    color: white; /* Set the text color to white */
+    background-color: #333; /* Add a dark background for contrast */
+    text-align: center; /* Center the text */
+    padding: 10px; /* Add padding for spacing */
+   }
+
+   footer p {
+    color: white; /* Set the text color to white */
+    background-color: #333; /* Add a dark background for contrast */
+    text-align: center; /* Center the text */
+    padding: 10px; /* Add padding for spacing */
+   }
+
+   .blue-box-container {
+    display: flex; /* Use Flexbox to align boxes side by side */
+    gap: 20px; /* Add spacing between the boxes */
+    justify-content: center; /* Center the boxes horizontally */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin: 20px 0; /* Add spacing above and below the container */
+   }
+
+   .blue-box {
+    background-color: #007BFF; /* Blue background color */
+    color: white; /* White text color for contrast */
+    padding: 20px; /* Add padding inside the box */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+    text-align: left; /* Align text to the left */
+    flex: 1 1 calc(50% - 20px); /* Make the boxes responsive */
+    max-width: 500px; /* Set a maximum width for each box */
+   }
+
+   .open-text {
+    color: black; /* Ensure the text is black */
+    font-size: 1.2rem; /* Adjust the font size */
+    line-height: 1.6; /* Adjust line spacing for readability */
+   }
+
+   h1 {
+    color: #ffffff; /* Blue color */
+    font-size: 3.0rem; /* Larger font size */
+    text-align: center; /* Center the text */
+    font-family: 'Arial', sans-serif; /* Font family */
+    margin: 20px 0; /* Add spacing above and below */
+    text-shadow: 2px 2px 4px rgb(0, 0, 0); /* Add shadow */
+}
+    h2 {
+     color: #0f0e0e; /* Blue color */
+     font-size: 2.0rem; /* Medium font size */
+     text-align: center; /* Center the text */
+     font-family: 'Arial', sans-serif; /* Font family */
+     margin: 20px 0; /* Add spacing above and below */
+    }
+
+    .blue-box h2 {
+        color: white; /* Keep h2 white inside blue boxes */
+    }
+    
+    /* Mobile responsive styles */
+    @media (max-width: 768px) {
+        /* Navigation styles for mobile */
+        nav {
+            width: 100%;
+            margin: 20px 0;
+            padding: 0;
+            position: relative;
+            background-color: transparent;
+        }
+        
+        /* Dropdown toggle button */
+        .nav-toggle {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+        }
+        
+        .nav-toggle:after {
+            content: '▼';
+            position: absolute;
+            right: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-toggle.active:after {
+            transform: rotate(180deg);
+        }
+        
+        /* Dropdown menu */
+        .nav-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            margin-top: 5px;
+        }
+        
+        .nav-dropdown.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        nav ul {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            margin: 0;
+            padding: 10px 0;
+            width: 100%;
+        }
+        
+        nav ul li {
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        nav ul li:last-child {
+            border-bottom: none;
+        }
+        
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            background-color: transparent;
+            color: #007BFF;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 0;
+        }
+        
+        nav ul li a:hover {
+            background-color: #f8f9fa;
+            color: #0056b3;
+        }
+    
+        /* Header adjustments for mobile */
+        .logo-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        
+        .logo-container img {
+            width: 120px !important;
+            height: auto;
+        }
+        
+        .contact-container {
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            text-align: right;
+            margin: 0;
+        }
+        
+        .contact-number {
+            font-size: 1.1rem;
+            color: white !important;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 0;
+        }
+        
+        /* Adjust body padding to accommodate positioned header elements */
+        body {
+            padding-top: 100px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+        
+        .open-text {
+            font-size: 1.5rem;
+            padding: 0 10px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        /* Blue box container mobile adjustments */
+        .blue-box-container {
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        
+        .blue-box {
+            width: 90%;
+            max-width: 350px;
+            margin-bottom: 20px;
+            flex: none;
+        }
+
+        /* Center h3 elements in blue boxes on mobile */
+        .blue-box h3 {
+            text-align: center !important;
+            color: white;
+            font-size: 1.2rem;
+            margin: 10px 0;
+            padding: 0 10px;
+        }
+    }
+    
+    /* Extra small screens */
+    @media (max-width: 480px) {
+        .nav-toggle {
+            padding: 12px 15px;
+            font-size: 1rem;
+        }
+        
+        nav ul li a {
+            padding: 12px 15px;
+            font-size: 0.95rem;
+        }
+        
+        .logo-container {
+            top: 5px;
+            right: 5px;
+        }
+        
+        .logo-container img {
+            width: 100px !important;
+        }
+        
+        .contact-container {
+            top: 50px;
+            right: 5px;
+        }
+        
+        .contact-number {
+            font-size: 1rem;
+            color: white !important;
+            padding: 4px 8px;
+        }
+        
+        body {
+            padding-top: 90px;
+        }
+        
+        h1 {
+            font-size: 2rem;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+        }
+        
+        .open-text {
+            font-size: 1.2rem;
+        }
+        
+        .blue-box {
+            width: 95%;
+            max-width: 300px;
+            padding: 15px;
+        }
+
+        .blue-box h3 {
+            text-align: center !important;
+            font-size: 1.1rem;
+            margin: 8px 0;
+            padding: 0 5px;
+        }
+    }
+    
+    /* Desktop Navigation Styles - Override mobile styles */
+    @media (min-width: 769px) {
+        /* Hide mobile menu button on desktop */
+        .nav-toggle {
+            display: none !important;
+        }
+        
+        /* Show navigation dropdown on desktop */
+        .nav-dropdown {
+            display: block !important;
+            position: static;
+            background-color: transparent;
+            box-shadow: none;
+            margin: 0;
+        }
+        
+        /* Desktop navigation styling */
+        nav {
+            margin: 20px 0;
+            z-index: 10;
+            display: flex;
+            gap: 20px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+        }
+        
+        nav ul li {
+            margin: 0 10px;
+            display: inline;
+            border-bottom: none;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: white !important;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            background-color: #333;
+            display: inline-block;
+        }
+        
+        nav ul li a:hover {
+            background-color: #007BFF;
+            color: white !important;
+        }
+        
+        /* Reset mobile positioning for desktop */
+        .logo-container,
+        .contact-container {
+            position: static;
+        }
+        
+        body {
+            padding-top: 0;
+        }
+    }
+</style>
+</head> <!-- Single closing head tag -->
+<body> <!-- Single opening body tag -->
+    <h1> Safer Driving School </h1>
+    <header class="page-header">
+        <div class="logo-container">
+            <a href="SDS.html" class="logo">
+                <img src="images/SaferDrivingSchoolLogo.png" alt="Safer Driving School Logo" style="width:150px; height:auto;">
+            </a>
+        </div>
+        <div class="contact-container">
+            <p class="contact-number">Tel: 07956 956636</p>
+        </div>
+    </header>
+
+
+    
+    <p class="welcome-text">Welcome to the Safer Driving School. Here you can find information about our driving courses, instructors, and how to enroll.</p>
+
+<nav>
+    <button class="nav-toggle" onclick="toggleNav()">Menu</button>
+    <div class="nav-dropdown" id="navDropdown">
+        <ul>
+            <li><a href="SDS.html">Home</a></li>
+            <li><a href="AboutSDS.html">About SDS</a></li>
+            <li><a href="prices.html">Prices</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <h2>Prices</h2>
+    <p class="open-text">Our driving lessons are competitively priced to ensure you receive the best value for your money. Below are our current rates:</p>
+
+    <div class="blue-box-container">
+        <!-- Blue Box 1 -->
+        <div class="blue-box">
+            <h2>Daytime Lessons</h2>
+            <p>Hourly Rate: £35 per hour</p>
+            <h3>Perfect for those who prefer to learn during the day with our experienced instructors.</h3>
+            <p>
+                • Block Booking Discounts:<br>
+                • Block of 5 Hours: £170 (save £5)<br>
+                • Block of 10 Hours: £340 (save £10)<br>
+                • Ideal for students looking to commit to a comprehensive learning experience.
+            </p>
+        </div>
+
+        <!-- Blue Box 2 -->
+        <div class="blue-box">
+            <h2>Evening Lessons</h2>
+            <p>Hourly Rate: £38 per hour</p>
+            <h3>Convenient for those with busy schedules, offering lessons during evenings and weekends.</h3>
+            <p>
+                • Block Booking Discounts:<br>
+                • Block of 5 Hours: £185 (save £5)<br>
+                • Block of 10 Hours: £370 (save £10)<br>
+                • A great option for learners who want to maximize their driving practice while balancing work or other commitments.
+            </p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 1993 Safer Driving School. All rights reserved.</p></footer>
+
+<script>
+function toggleNav() {
+    const dropdown = document.getElementById('navDropdown');
+    const toggle = document.querySelector('.nav-toggle');
+    
+    dropdown.classList.toggle('show');
+    toggle.classList.toggle('active');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    const nav = document.querySelector('nav');
+    const dropdown = document.getElementById('navDropdown');
+    const toggle = document.querySelector('.nav-toggle');
+    
+    if (!nav.contains(event.target)) {
+        dropdown.classList.remove('show');
+        toggle.classList.remove('active');
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.add("fade-in");
+
+    const links = document.querySelectorAll("a");
+    links.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent immediate navigation
+            const href = this.href;
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = href; // Navigate after fade-out
+            }, 500); // Match the transition duration
+        });
+    });
+});
+</script>
+</body>
+</html>

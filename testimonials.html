@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Safer Driving Schools </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Tyler SDS"> <!-- FIXED: Proper syntax -->
+<link rel="stylesheet" href="style.css">
+<style>
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+h1 {
+    font-size: 2.5rem; /* Adjust the size of the heading */
+    color: black;
+}
+p { 
+    color: black;
+}
+
+footer p { 
+    color: white !important; /* Force the text color to white */
+    background-color: #333; /* Optional: Add a dark background for contrast */
+    text-align: center; /* Center the text */
+    padding: 10px; /* Add padding for spacing */
+}
+
+.welcome-text {
+        color: white; /* Set the text color to white */
+    }
+.testimonial-image {
+    width: 60%; /* Adjust the width of the image */
+    max-width: 500px; /* Set a maximum width */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; /* Make the image a block element */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+.testimonial-container {
+    display: flex; /* Use Flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    min-height: 80vh; /* Ensure the container takes up most of the viewport height */
+    gap: 20px; /* Add spacing between elements */
+}
+
+.text-and-image {
+    display: flex; /* Align the paragraph and image side by side */
+    align-items: center; /* Align items vertically */
+    gap: 20px; /* Add spacing between the text and the image */
+}
+
+.text-and-image p {
+    flex: 1; /* Allow the paragraph to take up available space */
+    text-align: left; /* Align the text to the left */
+}
+
+.scroll-arrow {
+    text-align: center; /* Center the arrow */
+    margin: 20px 0; /* Add spacing above and below the arrow */
+}
+
+.scroll-arrow a {
+    font-size: 2rem; /* Adjust the size of the arrow */
+    color: white; /* Set the arrow color */
+    text-decoration: none; /* Remove underline */
+    background-color: #007BFF; /* Add circular background */
+    padding: 10px;
+    border-radius: 50%; /* Make it circular */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.scroll-arrow a:hover {
+    transform: translateY(5px); /* Move the arrow slightly down on hover */
+    background-color: #0056b3; /* Darken background on hover */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px); /* Move up */
+    }
+    60% {
+        transform: translateY(-5px); /* Move slightly up */
+    }
+}
+   
+
+h2 {
+    font-size: 2rem; /* Adjust the size of the subheadings */
+    color: rgb(0, 0, 0); /* Ensure the text color is black */
+}
+
+.white-box {
+    background-color: white; /* Set the background color to white */
+    padding: 20px; /* Add padding inside the box */
+    margin: 20px auto; /* Center the box and add vertical spacing */
+    max-width: 800px; /* Set a maximum width for the box */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+    text-align: center; /* Center the text inside the box */
+    max-height: 800px;
+}
+
+.blue-box-container {
+    display: flex; /* Use Flexbox to align boxes side by side */
+    gap: 20px; /* Add spacing between the boxes */
+    justify-content: center; /* Center the boxes horizontally */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin: 20px 0; /* Add spacing above and below the container */
+}
+
+.blue-box {
+    background-color: #007BFF; /* Blue background color */
+    color: white; /* White text color for contrast */
+    padding: 20px; /* Add padding inside the box */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+    text-align: center; /* Center the text inside the blue box */
+    max-width: 600px; /* Set a maximum width for the blue box */
+    margin: 0 auto; /* Center the blue box horizontally */
+}
+
+h2 {
+    color: #0f0e0e; /* Blue color */
+    font-size: 2.0rem; /* Medium font size */
+    text-align: center; /* Center the text */
+    font-family: 'Arial', sans-serif; /* Font family */
+    margin: 20px 0; /* Add spacing above and below */
+}
+
+    h1 {
+        color: #ffffff; /* Blue color */
+        font-size: 3.0rem; /* Larger font size */
+        text-align: center; /* Center the text */
+        font-family: 'Arial', sans-serif; /* Font family */
+        margin: 20px 0; /* Add spacing above and below */
+        text-shadow: 2px 2px 4px rgb(0, 0, 0); /* Add shadow */
+    }
+
+/* Mobile Navigation Dropdown Styles */
+@media (max-width: 768px) {
+    nav {
+        position: relative;
+        width: 100%;
+        margin: 20px 0;
+        padding: 0;
+        background-color: transparent;
+    }
+    
+    /* Dropdown toggle button */
+    .nav-toggle {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        position: relative;
+    }
+    
+    .nav-toggle:after {
+        content: '▼';
+        position: absolute;
+        right: 20px;
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-toggle.active:after {
+        transform: rotate(180deg);
+    }
+    
+    /* Dropdown menu */
+    .nav-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        margin-top: 5px;
+    }
+    
+    .nav-dropdown.show {
+        display: block;
+        animation: slideDown 0.3s ease;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 10px 0;
+        width: 100%;
+    }
+    
+    nav ul li {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+    
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 15px 20px;
+        background-color: transparent;
+        color: #007BFF;
+        text-decoration: none;
+        border-radius: 0;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        margin: 0;
+    }
+    
+    nav ul li a:hover {
+        background-color: #f8f9fa;
+        color: #0056b3;
+    }
+
+    /* Make blue box fit inside white box on mobile */
+    .blue-box {
+        background-color: #007BFF;
+        color: white;
+        padding: 15px; /* Reduce padding for mobile */
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 90%; /* Make it responsive */
+        max-width: 100%; /* Ensure it doesn't exceed container */
+        margin: 10px auto; /* Center it with smaller margins */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    /* Adjust testimonial container for mobile */
+    .testimonial-container {
+        padding: 10px; /* Add padding to container */
+        gap: 15px; /* Reduce gap between elements */
+        min-height: auto; /* Remove fixed height constraint */
+    }
+    
+    /* Make testimonial image more mobile-friendly */
+    .testimonial-image {
+        width: 80%; /* Smaller on mobile */
+        max-width: 300px; /* Set reasonable max width */
+    }
+    
+    /* Adjust text spacing */
+    .testimonial-container p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 15px 10px;
+        padding: 10px;
+    }
+    
+    /* Ensure quote text is readable */
+    .quote {
+        font-size: 1rem !important;
+        line-height: 1.5;
+        padding: 10px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .blue-box {
+        width: 95%; /* Almost full width on very small screens */
+        padding: 12px; /* Even smaller padding */
+        margin: 8px auto;
+    }
+    
+    .testimonial-container {
+        padding: 5px;
+        gap: 10px;
+    }
+    
+    .testimonial-image {
+        width: 90%;
+        max-width: 250px;
+    }
+    
+    .quote {
+        font-size: 0.9rem !important;
+    }
+}
+    
+</style>
+</head>
+<body>
+<h1> Safer Driving School </h1>
+
+    <header class="page-header">
+        <div class="logo-container">
+            <a href="SDS.html" class="logo">
+                <img src="images/SaferDrivingSchoolLogo.png" alt="Safer Driving School Logo" style="width:150px; height:auto;">
+            </a>
+        </div>
+        <div class="contact-container">
+            <p class="contact-number">Tel: 07956 956636</p>
+        </div>
+    </header>
+
+    <p class="welcome-text">Welcome to the Safer Driving School. Here you can find information about our driving courses, instructors, and how to enroll.</p>
+
+    <nav>
+        <button class="nav-toggle" onclick="toggleNav()">Menu</button>
+        <div class="nav-dropdown" id="navDropdown">
+            <ul>
+                <li><a href="SDS.html">Home</a></li>
+                <li><a href="AboutSDS.html">About SDS</a></li>
+                <li><a href="prices.html">Prices</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="contact-page">
+        <h2 id="testimonials-section">Testimonials</h2>
+        <div class="testimonial-container">
+            <p>
+                At SDS Driving School, nothing speaks louder than the words of our satisfied students and their families. We take great pride in the impact we've made on the lives of our learners since 1993. As a testament to our commitment to safer driving, our students have gone on to become confident, responsible drivers who prioritize safety on the road.
+
+                Here, you’ll find a collection of heartfelt testimonials from those who have experienced our personalized instruction and supportive environment. Their stories reflect our dedication to teaching essential driving skills and instilling a lifelong commitment to safety. We invite you to read their experiences and discover why SDS Driving School is the right choice for your driving education journey!
+            </p>
+            <img src="images/image-1.jpg" alt="Student Testimonial" class="testimonial-image">
+           
+            <div class="blue-box">
+                <p class="quote" style="color: white;">"I had the pleasure to have Tony as my instructor. He was very patient and gave me the reassurance I needed to pass my test! Thank you so much! Definitely will recommend to my family and friends"</p>
+            </div> <!-- Close the blue-box div -->
+
+        </div> <!-- Close the testimonial-container div -->
+
+        <!-- Scroll Arrow -->
+        <div class="scroll-arrow">
+            <h2> Click here view our testimonies </h2>
+            <a href="next-page.html">&#8594;</a> <!-- Rightward arrow linking to testimonail2.html -->
+        </div>
+        
+    </main> <!-- Now main can close properly -->
+
+    <footer>
+        <p>&copy; 1993 Safer Driving School. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleNav() {
+            const dropdown = document.getElementById('navDropdown');
+            const toggle = document.querySelector('.nav-toggle');
+            
+            dropdown.classList.toggle('show');
+            toggle.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const dropdown = document.getElementById('navDropdown');
+            const toggle = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(event.target)) {
+                dropdown.classList.remove('show');
+                toggle.classList.remove('active');
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.body.classList.add("fade-in");
+
+            const links = document.querySelectorAll("a");
+            links.forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault(); // Prevent immediate navigation
+                    const href = this.href;
+                    document.body.classList.remove("fade-in");
+                    document.body.style.opacity = 0;
+                    setTimeout(() => {
+                        window.location.href = href; // Navigate after fade-out
+                    }, 500); // Match the transition duration
+                });
+            });
+
+            const arrow = document.querySelector(".scroll-arrow a");
+
+            arrow.addEventListener("click", function (e) {
+                e.preventDefault(); // Prevent default anchor behavior
+
+                // Scroll to the target section
+                const target = document.querySelector(this.getAttribute("href"));
+                target.scrollIntoView({ behavior: "smooth" });
+            });
+        });
+    </script>
+</body>
+</html>

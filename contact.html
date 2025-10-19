@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Safer Driving Schools </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Tyler SDS"> <!-- FIXED: Proper syntax -->
+<link rel="stylesheet" href="style.css">
+<style>
+
+    h1 {
+        font-size: 3.5rem; /* Adjust the size of the heading */
+        font-weight: bolder; /* Changed from bold to normal */
+        text-shadow: 2px 2px 4px rgb(0, 0, 0); /* Add shadow */
+       }
+   
+       .contact-text {
+        font-size: 1.2rem; /* Adjust the size of the contact text */
+        line-height: 1.6; /* Adjust line spacing for readability */
+        color: black; /* Ensure text is visible */
+        font-weight: normal; /* Optional: Change font weight */
+       }
+
+       h2 {
+        font-size: 2.5rem; /* Adjust the size of the subheading */
+        color: rgb(14, 13, 13); /* Ensure the text is visible */
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Optional: Change the font */
+        font-weight: bold; /* Optional: Change font weight */
+        text-align: center;
+        margin: 0 0  20px 0; /* Add margin for spacing */
+       }
+
+       .contact-info h2 {
+        text-align: center;  /* Center the heading */
+        font-weight: bold;  /* Ensure the heading is bold */
+        margin: 0 0 20px 0; /* Add margin for */
+       }
+       
+.contact-page { 
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: black;
+}
+   .contact-page h1 { 
+    font-size: 3.5rem; /* Makes the text larger */
+    font-weight: normal; /* Changed from bold to normal */
+    text-align: center; /* Centers the text */
+    margin: 20px 0 20px 0; /* Adds space above and below the header */
+    color: rgb(14, 13, 13); /* Ensures the text is visible */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+   }
+   .contact-info {
+    text-align: center; /* Centers the text horizontally */
+    margin: 0 auto; /* Centers the container */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Optional: Change the font */
+    line-height: 1.6; /* Optional: Adjust line spacing */
+    font-size: 1.2rem; /* Adjust the text size here */
+    font-weight: normal; /* Add this to ensure normal weight */
+    height: auto; /* Allow the height to adjust based on content */
+}
+
+.text-container {
+    max-width: 600px; /* Set a maximum width for the text */
+    margin: 0 auto; /* Center the text container horizontally */
+    text-align: left; /* Align the text to the left */
+    line-height: 1.6; /* Adjust line spacing for readability */
+    font-size: 1.2rem; /* Adjust font size */
+    font-weight: normal; /* Add this to ensure normal weight */
+}
+
+.main-box {
+    width: 80%;
+    max-width: 1200px;
+    margin: 50px auto; /* Increase top margin from 10px to 50px */
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    height: auto;
+}
+
+.map-container iframe {
+        width: 100%; /* Ensure the map takes up the full width of its container */
+        height: 400px; /* Fixed height for the map */
+        border-radius: 10px; /* Add rounded corners */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+    }
+
+.content-row {
+    display: flex;
+    flex-direction: row; /* Default to row layout */
+    gap: 30px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.text-container {
+    flex: 1;
+    min-width: 0;
+    padding: 0 20px; /* Add padding to the text container */
+    text-align: center; /* Center the text */
+    margin: 20px;;
+}
+
+.map-container {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    text-align: center; /* Center the map */
+    max-width: 800px; /* Set a maximum width for the map container */;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 27%;
+    box-sizing: border-box;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.contact-page p {
+    font-weight: normal;
+    color: black;
+}
+
+/* Add this CSS before your mobile media query */
+main.contact-page {
+    margin-top: 30px; /* Add space above main content */
+    padding: 20px 0; /* Add padding around main content */
+}
+
+/* Add this mobile responsive CSS */
+@media (max-width: 768px) {
+    /* Adjust body height and spacing */
+    body {
+        min-height: auto; /* Full viewport height */
+        padding-top: 120px; /* Increase from 100px to 120px */
+    }
+    
+    /* Main content height adjustments */
+    main.contact-page {
+        min-height: calc(100vh - 200px); /* Adjust based on header/footer */
+        padding: 0 10px;
+        margin-top: 40px; /* Increase from 20px to 40px */
+    }
+    
+    /* White box height adjustments */
+   
+    
+    /* Stack content vertically on mobile */
+    .content-row {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    
+    .text-container {
+        max-width: 100% !important;
+        padding-right: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .map-container {
+        margin: 20px auto; /* Center horizontally */
+        text-align: center; /* Center the iframe */
+        max-width: 100%;
+    }
+    
+    .map-container iframe {
+        height: 250px !important; /* Reduce map height on mobile */
+        width: 95% !important; /* Slightly reduce width for better centering */
+        border-radius: 10px !important;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2) !important;
+        margin: 0 auto; /* Center the iframe */
+        display: block; /* Ensure block display for centering */
+    }
+    
+    /* Header adjustments */
+    h1 {
+        font-size: 2.5rem !important;
+        margin: 10px 0 !important;
+    }
+    
+    h2 {
+        font-size: 2rem !important;
+        margin: 0 0 20px 0 !important;
+    }
+    
+    /* Footer adjustments */
+    footer {
+        width: 90% !important;
+        margin: 30px auto 20px auto !important;
+        padding: 15px !important;
+    }
+    
+    /* Navigation mobile styles */
+    .nav-toggle {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+    }
+    
+    .nav-dropdown {
+        display: none;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        margin-top: 5px;
+    }
+    
+    .nav-dropdown.show {
+        display: block;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 15px 20px;
+        color: #007BFF;
+        text-decoration: none;
+    }
+
+    /* Header adjustments for mobile */
+    .logo-container {
+        position: absolute;
+        top: 10px;
+        left: 10px; /* Change from right: 10px to left: 10px */
+        text-align: left; /* Change from right to left */
+        margin-bottom: 10px;
+    }
+    
+    .logo-container img {
+        width: 120px !important;
+        height: auto;
+    }
+    
+    .contact-container {
+        position: absolute;
+        top: 60px;
+        right: 10px; /* Keep contact number on the right */
+        text-align: right;
+        margin: 0;
+    }
+    
+    .contact-number {
+        font-size: 1.1rem;
+        color: white !important;
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin: 0;
+    }
+    
+    /* Adjust body padding to accommodate positioned header elements */
+    body {
+        padding-top: 100px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .main-box {
+        min-height: 350px !important; /* Smaller minimum height for very small screens */
+        padding: 15px !important;
+    }
+    
+    .map-container {
+        margin: 15px auto !important; /* Center with less margin on very small screens */
+    }
+    
+    .map-container iframe {
+        height: 200px !important; /* Even smaller map on tiny screens */
+        width: 90% !important; /* Even more compact on tiny screens */
+        border-radius: 10px; /* Maintain rounded corners */
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for smaller screens */
+        margin: 0 auto; /* Center the map */
+        display: block; /* Ensure the map is displayed as a block element */
+    }
+    
+    body {
+        padding-top: 80px; /* Reduce top padding */
+    }
+
+    .logo-container {
+        top: 5px;
+        left: 5px; /* Change from right: 5px to left: 5px */
+    }
+    
+    .logo-container img {
+        width: 100px !important;
+    }
+    
+    .contact-container {
+        top: 50px;
+        right: 5px; /* Keep contact number on the right */
+    }
+    
+    .contact-number {
+        font-size: 1rem;
+        color: white !important;
+        padding: 4px 8px;
+    }
+    
+    body {
+        padding-top: 90px;
+    }
+}
+</style>
+</head>
+<body>
+<h1> Safer Driving School </h1>
+<div class="logo-container">
+    <a href="SDS.html" class="logo">
+        <img src="images/SaferDrivingSchoolLogo.png" alt="Safer Driving School Logo" style="width:150px; height:auto;">
+    </a>
+</div>
+   
+    <header class="page-header">
+      
+        <div class="contact-container">
+            <p class="contact-number">Tel: 07956 956636</p>
+        </div>
+    </header>
+        <p>Welcome to the Safer Driving School. Here you can find information about our driving courses, instructors, and how to enroll.</p>
+        <nav>
+    <button class="nav-toggle" onclick="toggleNav()">Menu</button>
+    <div class="nav-dropdown" id="navDropdown">
+        <ul>
+            <li><a href="SDS.html">Home</a></li>
+            <li><a href="AboutSDS.html">About SDS</a></li>
+            <li><a href="prices.html">Prices</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+</nav>
+    <main class="contact-page">
+        <h2>Contact Us</h2>
+        <div class="content-row">
+            <div class="text-container">
+                <p class="contact-text">
+                    If you have any questions or would like more information, please do get in touch!
+                    Phone Tony Skerritt on 07956 956636. All lessons are taken within the Lewisham and Bromley areas
+                    Monday to Friday 9am to 6pm.
+                </p>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2381.690123456789!2d-0.020000000000000!3d51.405000000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a9c123456789%3A0xabcdef123456789!2sBromley%20Borough!5e0!3m2!1sen!2suk!4v1234567890123!5m2!1sen!2suk" 
+                    style="width: 100%; height: 400px; border: 0; display: block; margin: auto;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </main> <!-- Close main only once -->
+
+    <footer>
+        <p>&copy; 1993 Safer Driving School. All rights reserved.</p>
+    </footer>
+
+        <script>
+function toggleNav() {
+    const dropdown = document.getElementById('navDropdown');
+    const toggle = document.querySelector('.nav-toggle');
+    
+    dropdown.classList.toggle('show');
+    toggle.classList.toggle('active');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    const nav = document.querySelector('nav');
+    const dropdown = document.getElementById('navDropdown');
+    const toggle = document.querySelector('.nav-toggle');
+    
+    if (!nav.contains(event.target)) {
+        dropdown.classList.remove('show');
+        toggle.classList.remove('active');
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.add("fade-in");
+
+    const links = document.querySelectorAll("a");
+    links.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent immediate navigation
+            const href = this.href;
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = href; // Navigate after fade-out
+            }, 500); // Match the transition duration
+        });
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Safer Driving Schools </title>
+<meta charset="UTF-8">
+<meta name="author" content="Tyler SDS">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<style>
+   h1 {
+    font-size: 2.5rem; /* Adjust the size of the heading */
+   }
+p {
+    font-size: 1rem; /* Adjust the size of the paragraphs */
+    line-height: 1.8; /* Optional: Adjust line spacing for better readability */
+    
+}
+
+.license-image {
+    display: block;
+    margin: 20px auto; /* Center the image and add spacing */
+    width: 100%; /* Make the image responsive */
+    max-width: 500px; /* Set a maximum width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+footer {
+    background-color: #333; /* Set the background color to black */
+    color: white; /* Set the text color to white for contrast */
+    text-align: center; /* Center the text */
+    padding: 10px; /* Add padding inside the footer */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.contact-page {
+        color: black; /* Ensure all text in the contact page is black */
+    }
+
+    .contact-page h1, .contact-page p {
+        color: black; /* Explicitly set the color of headings and paragraphs to black */
+    }
+    
+
+    .blue-box-container {
+        display: flex; /* Use Flexbox to align boxes side by side */
+        gap: 20px; /* Add spacing between the boxes */
+        justify-content: center; /* Center the boxes horizontally */
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        margin: 20px 0; /* Add spacing above and below the container */
+
+    }
+    
+    .blue-box {
+        background-color: #007BFF; /* Blue background color */
+        color: rgb(255, 255, 255); /* White text color for contrast */
+        padding: 20px; /* Add padding inside the box */
+        border-radius: 10px; /* Add rounded corners */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+        text-align: left; /* Align text to the left */
+        flex: 1 1 calc(50% - 20px); /* Make the boxes responsive */
+        max-width: 500px; /* Set a maximum width for each box */
+        justify-content: center;
+    }
+   
+    .quote {
+        font-style: italic; /* Make the quote italic */
+        margin: 0; /* Remove default margin */
+        color: white;
+    }
+
+    h1 {
+        color: #ffffff; /* Blue color */
+        font-size: 3.0rem; /* Larger font size */
+        text-align: center; /* Center the text */
+        font-family: 'Arial', sans-serif; /* Font family */
+        margin: 20px 0; /* Add spacing above and below */
+        text-shadow: 2px 2px 4px rgb(0, 0, 0); /* Add shadow */
+    }
+
+    h2 {
+        text-align: center; /* Center the h2 heading */
+        color: #333; /* Optional: Set color */
+        font-size: 2rem; /* Optional: Adjust font size */
+        margin: 20px 0; /* Optional: Add spacing above and below */
+        font-family: 'Arial', sans-serif; /* Optional: Set font family */
+    }
+
+
+    /* Mobile responsive styles */
+@media (max-width: 768px) {
+    .page-container {
+        height: auto; /* Allow container to expand naturally */
+        min-height: 350px; /* Set minimum height for slideshow */
+        margin-bottom: 30px; /* Add space below slideshow */
+        padding: 15px; /* Reduce padding for mobile */
+        display: flex; /* Use flex layout */
+        flex-direction: column; /* Stack content vertically */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    .slideshow-container {
+        min-height: 300px; /* Set appropriate height for mobile */
+        max-height: 350px; /* Prevent slideshow from getting too tall */
+        position: relative; /* Keep relative positioning */
+        z-index: 1; /* Lower z-index */
+        width: 100%; /* Full width of container */
+        margin: 0; /* Remove auto margins */
+        flex: 1; /* Allow it to fill the container */
+        overflow: hidden; /* Hide overflow */
+    }
+    
+    .slide-image {
+        width: 100%; /* Make images responsive */
+        height: 250px; /* Set consistent height for mobile */
+        max-width: 100%; /* Ensure images don't overflow */
+        object-fit: cover; /* Maintain aspect ratio */
+    }
+    
+    .slide-text {
+        bottom: 15px; /* Adjust text position for smaller screens */
+        padding: 10px 15px; /* Reduce padding for mobile */
+        font-size: 1.1rem; /* Smaller font size for mobile */
+        border-radius: 10px; /* Adjust border radius */
+    }
+    
+    .blue-box-container {
+        margin: 50px 20px 30px 20px; /* Add extra space above blue boxes */
+        position: relative; /* Ensure proper positioning */
+        z-index: 2; /* Higher z-index than slideshow */
+        clear: both; /* Clear any floating elements */
+        flex-direction: column; /* Stack boxes vertically */
+        align-items: center; /* Center the boxes */
+        padding: 0 10px;
+    }
+    
+    .blue-box {
+        width: calc(100% - 40px); /* Make boxes responsive */
+        max-width: 320px; /* Set maximum width */
+        height: auto; /* Allow height to adjust to content */
+        min-height: 200px; /* Set minimum height */
+        margin: 0 auto 20px auto; /* Add space between boxes */
+        padding: 20px; /* Adjust padding for mobile */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    h1 {
+        font-size: 2.5rem; /* Smaller on mobile */
+    }
+    
+    h2 {
+        font-size: 2rem; /* Smaller on mobile */
+        letter-spacing: 1px; /* Reduce letter spacing */
+    }
+    
+    .open-text {
+        font-size: 1.5rem; /* Smaller on mobile */
+    }
+
+    /* Header adjustments for mobile */
+    .logo-container {
+        position: absolute;
+        top: 10px;
+        right: 10px; /* Move logo to the right */
+        text-align: right;
+        margin-bottom: 10px;
+    }
+    
+    .logo-container img {
+        width: 120px !important; /* Smaller logo on mobile */
+        height: auto;
+    }
+    
+    .contact-container {
+        position: absolute;
+        top: 60px; /* Position below the logo */
+        right: 10px; /* Move to the right */
+        text-align: right;
+        margin: 0;
+    }
+    
+    .contact-number {
+        font-size: 1.1rem;
+        color: white !important; /* Force white color */
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.5); /* Add semi-transparent background for better visibility */
+        padding: 5px 10px; /* Add padding around text */
+        border-radius: 5px; /* Rounded corners */
+        margin: 0;
+    }
+    
+    /* Adjust body padding to accommodate positioned header elements */
+    body {
+        padding-top: 100px; /* Add top padding to prevent overlap */
+    }
+    
+    h1 {
+        margin-top: 20px; /* Add margin to h1 to prevent overlap */
+    }
+
+    /* Mobile Navigation Dropdown Styles */
+    nav {
+        position: relative;
+        width: 100%;
+        margin: 20px 0;
+        padding: 0;
+        background-color: transparent;
+    }
+    
+    /* Dropdown toggle button */
+    .nav-toggle {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        position: relative;
+    }
+    
+    .nav-toggle:after {
+        content: '▼';
+        position: absolute;
+        right: 20px;
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-toggle.active:after {
+        transform: rotate(180deg);
+    }
+    
+    /* Dropdown menu */
+    .nav-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        margin-top: 5px;
+    }
+    
+    .nav-dropdown.show {
+        display: block;
+        animation: slideDown 0.3s ease;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 10px 0;
+        width: 100%;
+    }
+    
+    nav ul li {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+    
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 15px 20px;
+        background-color: transparent;
+        color: #007BFF;
+        text-decoration: none;
+        border-radius: 0;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        margin: 0;
+    }
+    
+    nav ul li a:hover {
+        background-color: #f8f9fa;
+        color: #0056b3;
+    }
+
+    /* Make the main paragraph more mobile-friendly */
+    .contact-page p {
+        font-size: 1.1rem !important; /* Slightly larger text for mobile */
+        line-height: 1.8; /* Better line spacing for readability */
+        text-align: center; /* Left align for better reading flow */
+        margin: 20px 15px; /* Add side margins for better spacing */
+        padding: 15px; /* Add padding around text */
+        background-color: transparent; /* Subtle background */
+        border-radius: 10px; /* Rounded corners */
+        
+        color: #000000 !important; /* Ensure good contrast */
+    }
+    
+    /* Break up the long paragraph visually */
+    .contact-page p::first-line {
+        font-weight: bold; /* Make first line bold */
+        font-size: 1.15rem; /* Slightly larger first line */
+    }
+    
+    /* Adjust spacing around the paragraph */
+    .contact-page {
+        padding: 10px; /* Add padding to the container */
+    }
+    
+    /* Ensure headings are properly spaced */
+    .contact-page h2 {
+        margin: 15px 10px; /* Adjust margin for mobile */
+        font-size: 1.8rem; /* Slightly smaller on mobile */
+    }
+    
+    /* Make the license image more mobile-friendly */
+    .license-image {
+        max-width: 90%; /* Reduce width on mobile */
+        margin: 20px auto; /* Center with better spacing */
+        border-radius: 10px; /* Add rounded corners */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow */
+    }
+
+    /* Keep quote text white in blue box */
+    .blue-box .quote {
+        color: white !important;
+        background-color: transparent !important;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .page-container {
+        height: auto; /* Allow container to expand naturally */
+        min-height: 300px; /* Set minimum height */
+        padding: 10px; /* Further reduce padding */
+        margin: 5px; /* Reduce margin */
+    }
+    
+    .slideshow-container {
+        min-height: 250px; /* Further reduce height */
+        max-height: 300px; /* Set maximum height */
+    }
+    
+    .slide-image {
+        height: 200px; /* Further reduce height */
+    }
+    
+    .slide-text {
+        font-size: 0.9rem; /* Adjust font size */
+        padding: 8px 12px; /* Adjust padding */
+    }
+    
+    .blue-box {
+        width: calc(100); /* Almost full width */
+        max-width: 300px;
+        margin: 10px auto 20px auto; /* Center the boxes */
+        padding: 15px; /* Reduce padding further */
+    }
+    
+    h1 {
+        font-size: 2rem; /* Even smaller */
+    }
+    
+    h2 {
+        font-size: 1.5rem; /* Even smaller */
+    }
+    
+    .open-text {
+        font-size: 1.2rem; /* Even smaller */
+    }
+
+    .logo-container {
+        top: 5px;
+        right: 5px;
+    }
+    
+    .logo-container img {
+        width: 100px !important; /* Even smaller logo */
+    }
+    
+    .contact-container {
+        top: 50px;
+        right: 5px;
+    }
+    
+    .contact-number {
+        font-size: 1rem;
+        color: white !important;
+        padding: 4px 8px;
+    }
+    
+    body {
+        padding-top: 90px; /* Adjust for smaller screens */
+    }
+
+    .contact-page p {
+        font-size: 1rem !important; /* Appropriate size for small screens */
+        margin: 15px 10px; /* Reduce margins */
+        padding: 12px; /* Reduce padding */
+    }
+    
+    .contact-page h2 {
+        font-size: 1.6rem; /* Even smaller heading */
+        margin: 10px 5px;
+    }
+    
+    .license-image {
+        max-width: 95%; /* Almost full width on very small screens */
+        margin: 15px auto;
+    }
+}
+
+/* Desktop Navigation Styles - Override mobile styles */
+@media (min-width: 769px) {
+    /* Hide mobile menu button on desktop */
+    .nav-toggle {
+        display: none !important;
+    }
+    
+    /* Show navigation dropdown on desktop */
+    .nav-dropdown {
+        display: block !important;
+        position: static;
+        background-color: transparent;
+        box-shadow: none;
+        margin: 0;
+    }
+    
+    /* Desktop navigation styling */
+    nav {
+        margin: 20px 0;
+        z-index: 10;
+        display: flex;
+        gap: 20px;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        position: relative;
+    }
+    
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 100%;
+    }
+    
+    nav ul li {
+        margin: 0 10px;
+        display: inline;
+        border-bottom: none;
+    }
+    
+    nav ul li a {
+        text-decoration: none;
+        color: white !important; /* Force white text color */
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        background-color: #333;
+        display: inline-block;
+    }
+    
+    nav ul li a:hover {
+        background-color: #007BFF;
+        color: white !important;
+    }
+    .contact-container {
+        color: white; /* Ensure contact number is visible */
+        font-weight: bold;
+        margin-left: 20px; /* Add space from the logo */
+    }
+}
+
+</style>
+</head>
+<body>
+<h1> Safer Driving School</h1>
+
+    <header class="page-header">
+    <div class="logo-container">
+        <a href="SDS.html" class="logo">
+            <img src="images/SaferDrivingSchoolLogo.png" alt="Safer Driving School Logo" style="width:150px; height:auto;">
+        </a>
+    </div>
+    <div class="contact-container">
+        <p class="contact-number">Tel: 07956 956636</p>
+    </div>
+</header>
+    <p>Welcome to the Safer Driving School. Here you can find information about our driving courses, instructors, and how to enroll.</p>
+    <nav>
+        <button class="nav-toggle" onclick="toggleNav()">Menu</button>
+        <div class="nav-dropdown" id="navDropdown">
+        <ul>
+        <li> <a href="SDS.html"> Home </a></li>
+        <li> <a href="AboutSDS.html"> About SDS </a></li>
+        <li> <a href="prices.html"> Prices </a></li>
+        <li> <a href="testimonials.html"> Testimonials</a></li>
+        <li> <a href="contact.html"> Contact Us </a></li>
+        </ul>
+        </div>
+    </nav>
+<main class="contact-page">
+    
+   
+        <h2>About SDS Driving School</h2>
+        <p>
+            Welcome to SDS Driving School, where our commitment to safer driving is at the forefront of everything we do. Established in 1993 by Tony Skerrit, who has been the sole owner and operator since its inception, our school has been dedicated to providing high-quality driving education for over three decades.
+            At SDS Driving School, we believe that safe driving is not just a skill but a vital life lesson. Our experienced instructors, led by Tony Skerrit, bring a wealth of knowledge and expertise to the classroom and behind the wheel. We offer personalized instruction tailored to each student's needs, ensuring that every learner gains the confidence and skills necessary to navigate the roads safely.
+            Our curriculum covers everything from basic driving techniques to advanced defensive driving strategies, all designed to prepare our students for a lifetime of safe driving. We take pride in our positive, supportive learning environment, where students can feel comfortable and empowered to ask questions and practice their skills.
+            Join us at SDS Driving School, where we're not just teaching you how to drive; we're instilling a lifelong commitment to safety on the road. Whether you're a new driver or looking to improve your skills, we are here to guide you every step of the way. Let us help you take the first step towards becoming a safer, more confident driver!
+        </p>
+        <img src="images/RIPL .jpg" alt="Driving License" class="license-image">
+        
+        <div class="blue-box-container">
+            <div class="blue-box">
+                <p class="quote" style="color: white;">"At SDS, we can guarantee a friendly and reliable instructor delivering expert tuition. We have fantastic offers for new learner drivers and discounts on block booking!" - Tony Skerrit, SDS</p>
+            </div> <!-- Close the blue-box div -->
+        </div> <!-- Close the blue-box-container div -->
+        
+</main> <!-- Close main once -->
+
+<footer>
+    <p>&copy; Est 1993 Safer Driving School. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleNav() {
+    const dropdown = document.getElementById('navDropdown');
+    const toggle = document.querySelector('.nav-toggle');
+    
+    dropdown.classList.toggle('show');
+    toggle.classList.toggle('active');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    const nav = document.querySelector('nav');
+    const dropdown = document.getElementById('navDropdown');
+    const toggle = document.querySelector('.nav-toggle');
+    
+    if (!nav.contains(event.target)) {
+        dropdown.classList.remove('show');
+        toggle.classList.remove('active');
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.add("fade-in");
+
+    const links = document.querySelectorAll("a");
+    links.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent immediate navigation
+            const href = this.href;
+            document.body.classList.remove("fade-in");
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = href; // Navigate after fade-out
+            }, 500); // Match the transition duration
+        });
+    });
+});
+</script>
+
+</body>
+</html>

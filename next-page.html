@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Safer Driving Schools </title>
+<meta charset="UTF-8">
+<meta name="author" content="Tyler SDS"> <!-- FIXED: Proper syntax -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<style>
+   
+main { 
+    color: black; /* Set the text color to black */
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.testimonial-image {
+    width: 40%; /* Set a fixed width for the image */
+    max-width: 60px; /* FIXED: Added 'px' unit */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 10px; /* Optional: Add rounded corners to the image */
+    display: block; /* Center the image */
+    margin: 20px auto; /* Add spacing and center the image horizontally */
+}
+
+.scroll-arrow a {
+    font-size: 2rem; /* Adjust the size of the arrow */
+    color: white; /* Set the arrow color */
+    text-decoration: none; /* Remove underline */
+    background-color: #007BFF; /* Add circular background */
+    padding: 10px;
+    border-radius: 50%; /* Make it circular */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.scroll-arrow a:hover {
+    transform: translateX(10px); /* Slide the arrow to the right on hover */
+    background-color: #0056b3; /* Darken background on hover */
+}
+
+.centered-header {
+    text-align: center; /* Center the text horizontally */
+    margin: 20px 0; /* Add vertical spacing */
+}
+
+.navigation-arrows {
+    display: flex; /* Use Flexbox to position the arrow */
+    justify-content: center; /* Center the arrow horizontally */
+    align-items: center; /* Align the arrow vertically */
+    margin: 20px 0; /* Add spacing above and below the arrow */
+}
+
+.left-arrow {
+    font-size: 2rem; /* Adjust the size of the arrow */
+    color: white; /* Set the arrow color */
+    text-decoration: none; /* Remove underline */
+    background-color: #007BFF; /* Add circular background */
+    padding: 10px;
+    border-radius: 50%; /* Make it circular */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.left-arrow:hover {
+    transform: scale(1.1); /* Slightly enlarge the arrow on hover */
+    background-color: #0056b3; /* Darken background on hover */
+}
+
+.grid-container {
+    display: flex; /* Use Flexbox to create a grid layout */
+    flex-wrap: wrap; /* Allow wrapping to the next row */
+    gap: 20px; /* Add spacing between boxes */
+    justify-content: center; /* Center the boxes horizontally */
+    margin: 20px 0; /* Add spacing above and below the grid */
+}
+
+.grid-box {
+    display: flex; /* Use Flexbox to align image and text side by side */
+    align-items: center; /* Align items vertically */
+    gap: 20px; /* Add spacing between the image and text */
+    background-color: white; /* Set a white background for the boxes */
+    padding: 20px; /* Add padding inside the boxes */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+    max-width: 800px; /* Set a maximum width for each box */
+    flex: 1 1 calc(50% - 20px); /* Make the boxes responsive */
+}
+
+.grid-box p {
+    flex: 1; /* Allow the paragraph to take up the remaining space */
+    text-align: left; /* Align the text to the left */
+    margin: 0; /* Remove default margin */
+}
+
+h1 {
+    color: #ffffff; /* Blue color */
+    font-size: 3.0rem; /* Larger font size */
+    text-align: center; /* Center the text */
+    font-family: 'Arial', sans-serif; /* Font family */
+    margin: 20px 0; /* Add spacing above and below */
+    text-shadow: 2px 2px 4px rgb(0, 0, 0); /* Add shadow */
+}
+
+/*Add this mobile responsive CSS to your existing CSS file*/
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    /* Navigation styles */
+    nav {
+        position: relative;
+        width: 100%;
+        margin: 20px 0;
+        padding: 0;
+        background-color: transparent;
+        z-index: 1000;
+    }
+    
+    .nav-toggle {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        position: relative;
+    }
+    
+    .nav-toggle:after {
+        content: '▼';
+        position: absolute;
+        right: 20px;
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-toggle.active:after {
+        transform: rotate(180deg);
+    }
+    
+    .nav-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        margin-top: 5px;
+    }
+    
+    .nav-dropdown.show {
+        display: block;
+        animation: slideDown 0.3s ease;
+    }
+    
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 10px 0;
+        width: 100%;
+    }
+    
+    nav ul li {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+    
+    nav ul li:last-child { border-bottom: none; }
+    
+    nav ul li a {
+        display: block;
+        padding: 15px 20px;
+        background-color: transparent;
+        color: #007BFF;
+        text-decoration: none;
+        border-radius: 0;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        margin: 0;
+    }
+    
+    nav ul li a:hover {
+        background-color: #f8f9fa;
+        color: #0056b3;
+    }
+
+    /* Header positioning */
+    .logo-container {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        text-align: left;
+    }
+    
+    .logo-container img {
+        width: 120px !important;
+        height: auto;
+    }
+    
+    .contact-container {
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        text-align: right;
+    }
+    
+    .contact-number {
+        font-size: 1.1rem;
+        color: white !important;
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    body {
+        padding-top: 100px;
+    }
+    
+    h1 {
+        margin-top: 20px;
+        font-size: 2.5rem;
+    }
+
+    /* MAIN GRID CONTAINER FOR MOBILE */
+    .grid-container {
+        display: grid !important; /* Convert from flexbox to CSS Grid */
+        grid-template-columns: 1fr !important; /* Single column layout */
+        gap: 15px !important;
+        padding: 0 15px !important; /* Add side padding */
+        margin: 20px 0 !important;
+        max-width: 100% !important;
+        justify-items: center !important; /* Center grid items */
+    }
+    
+    .grid-box {
+        display: grid !important; /* Make each testimonial box a grid */
+        grid-template-columns: 70px 1fr !important; /* Small image column + text column */
+        grid-template-rows: auto auto !important; /* Name row + testimonial row */
+        grid-template-areas: 
+            "image name"
+            "text text" !important; /* Text spans both columns */
+        column-gap: 15px !important;
+        row-gap: 10px !important;
+        align-items: start !important;
+        background-color: white !important;
+        padding: 15px !important;
+        border-radius: 10px !important;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2) !important;
+        max-width: 350px !important; /* Limit width for mobile */
+        width: 100% !important;
+        box-sizing: border-box !important;
+        flex: none !important; /* Remove flex properties */
+        justify-content: start !important;
+    }
+    
+    .testimonial-image {
+        grid-area: image !important; /* Place in image area */
+        width: 60px !important;
+        height: 60px !important;
+        border-radius: 50% !important; /* Make circular */
+        object-fit: cover !important;
+        margin: 0 !important;
+        align-self: start !important;
+        max-width: none !important; /* Override existing max-width */
+    }
+    
+    .grid-box h2 {
+        grid-area: name !important; /* Place in name area */
+        margin: 0 !important;
+        font-size: 1.3rem !important;
+        color: #333 !important;
+        align-self: center !important;
+        text-align: left !important;
+    }
+    
+    .grid-box p {
+        grid-area: text !important; /* Place in text area */
+        margin: 5px 0 0 0 !important;
+        text-align: left !important;
+        line-height: 1.6 !important;
+        font-size: 0.95rem !important;
+        color: #666 !important;
+        flex: none !important; /* Remove flex property */
+    }
+
+    /* Navigation arrows adjustment */
+    .navigation-arrows {
+        margin: 30px 0 !important;
+        padding: 0 15px !important;
+    }
+    
+    .left-arrow {
+        font-size: 1.5rem !important;
+        padding: 8px 12px !important;
+    }
+    
+    /* Footer adjustments */
+    footer {
+        margin-top: 30px !important;
+        padding: 15px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Tablet view */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .grid-container {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Two columns for tablets */
+        gap: 20px !important;
+        padding: 0 20px !important;
+    }
+    
+    .grid-box {
+        max-width: none !important;
+        width: 100% !important;
+    }
+}
+
+/* Desktop Navigation Styles */
+@media (min-width: 769px) {
+    .nav-toggle {
+        display: none !important;
+    }
+    
+    .nav-dropdown {
+        display: block !important;
+        position: static;
+        background-color: transparent;
+        box-shadow: none;
+        margin: 0;
+    }
+    
+    /* DESKTOP IMAGE SIZE - Reset to original size */
+    .testimonial-image {
+        width: 40% !important; /* Restore original width */
+        max-width: 300px !important; /* Increase from 60px to original larger size */
+        height: auto !important;
+        border-radius: 10px !important; /* Square/rounded corners instead of circular */
+        object-fit: cover !important;
+        margin: 20px auto !important;
+        display: block !important;
+    }
+    
+    nav {
+        margin: 20px 0;
+        z-index: 10;
+        display: flex;
+        gap: 20px;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        position: relative;
+    }
+    
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 100%;
+    }
+    
+    nav ul li {
+        margin: 0 10px;
+        display: inline;
+        border-bottom: none;
+    }
+    
+    nav ul li a {
+        text-decoration: none;
+        color: white !important;
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        background-color: #333;
+        display: inline-block;
+    }
+    
+    nav ul li a:hover {
+        background-color: #007BFF;
+        color: white !important;
+    }
+    
+    .logo-container,
+    .contact-container {
+        position: static;
+    }
+
+/* Add this for small screens */
+@media (max-width: 480px) {
+    .logo-container {
+        top: 5px;
+        left: 5px;
+        text-align: left;
+    }
+
+    .logo-container img {
+        width: 100px !important; /* Adjust logo size for small screens */
+    }
+
+    .contact-container {
+        top: 50px;
+        right: 5px;
+    }
+
+    .container-number {
+        font-size: 1rem; /* Adjust font size for small screens */
+        padding: 4px 8px;
+    }
+}
+
+
+}
+
+</style>
+</head>
+<body>
+
+    <h1> Safer Driving School </h1>
+    <header class="page-header">
+        <div class="logo-container">
+            <a href="SDS.html" class="logo">
+                <img src="images/SaferDrivingSchoolLogo.png" alt="Safer Driving School Logo" style="width:150px; height:auto;">
+            </a>
+        </div>
+        <div class="contact-container">
+            <p class="contact-number">Tel: 07956 956636</p>
+        </div>
+    </header>
+        <p>Welcome to the Safer Driving School. Here you can find information about our driving courses, instructors, and how to enroll.</p>
+    
+    <nav>
+        <button class="nav-toggle" onclick="toggleNav()">Menu</button>
+        <div class="nav-dropdown" id="navDropdown">
+            <ul>
+                <li><a href="SDS.html">Home</a></li>
+                <li><a href="AboutSDS.html">About SDS</a></li>
+                <li><a href="prices.html">Prices</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div> <!-- Close nav-dropdown div -->
+    </nav> <!-- Close nav -->
+
+<main>
+    <div id="next-section">
+        <div class="grid-container">
+            <!-- Box 1 -->
+            <div class="grid-box">
+                <img src="images/image-8.jpg" alt="Ryan's Testimonial" class="testimonial-image">
+                <h2>Ryan</h2>
+                <p>"Thanks to my driving instructor, Tony. I passed my manual driving test first time. I would highly recommend him to anyone as he takes care and time in teaching and instructing how to drive a car safely and confidently" - Ryan</p>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="grid-box">
+                <img src="images/image-9.jpg" alt="Sami's Testimonial" class="testimonial-image">
+                <h2>Sami</h2>
+                <p>"I’m so happy and grateful to pass my driving test today with my instructor Tony. He’s absolutely amazing instructor and I highly recommend him to anyone who wants to learn and get confidence with their lessons. He’s a top-class instructor and very good teacher and explains everything clearly and politely. Thank you, Tony!" - Sami</p>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="grid-box">
+                <img src="images/image-7.jpg" alt="Guri's Testimonial" class="testimonial-image">
+                <h2>Guri</h2>
+                <p>"I had an amazing experience learning to drive with Tony (1st time school of motoring)! Thanks to his excellent teaching, I passed my driving test with confidence. He is very knowledgeable and clearly has a lot of experience, which shows in the way he explains everything so clearly and calmly. His lessons were always structured, patient, and encouraging, which really helped me build my confidence behind the wheel. I highly recommend him to anyone looking for a skilled and reliable driving instructor!" - Guri</p>
+            </div>
+
+            <!-- Box 4 -->
+            <div class="grid-box">
+                <img src="images/image-4.jpg" alt="Gregory's Testimonial" class="testimonial-image">
+                <h2>Gregory</h2>
+                <p>"After failing my test 3 times with my previous instructor (who rarely spoke or gave feedback), I was recommended Tony by a friend. What a difference! From our first lesson, Tony made me feel comfortable and actually pointed out the small things I was doing wrong - like mirror checks, roundabout guidance, etc. Fast forward, I passed my test with only 1 minor and no majors. What more can you ask for! His teaching style is clear, supportive, and he genuinely helps you improve. Would absolutely recommend Tony to anyone." - Gregory</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="navigation-arrows">
+        <!-- Leftward arrow pointing to the previous page -->
+        <a href="testimonials.html" class="left-arrow">&#8592;</a> <!-- Leftward arrow -->
+    </div>
+</main> <!-- Close main only once -->
+
+<footer>
+    <p>&copy; Est 1993 Safer Driving School. All rights reserved.</p>
+</footer>
+
+<script>
+    function toggleNav() {
+        const dropdown = document.getElementById('navDropdown');
+        const toggle = document.querySelector('.nav-toggle');
+        
+        dropdown.classList.toggle('show');
+        toggle.classList.toggle('active');
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        const nav = document.querySelector('nav');
+        const dropdown = document.getElementById('navDropdown');
+        const toggle = document.querySelector('.nav-toggle');
+        
+        if (!nav.contains(event.target)) {
+            dropdown.classList.remove('show');
+            toggle.classList.remove('active');
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.body.classList.add("fade-in");
+
+        const links = document.querySelectorAll("a");
+        links.forEach(link => {
+            link.addEventListener("click", function (e) {
+                e.preventDefault(); // Prevent immediate navigation
+                const href = this.href;
+                document.body.classList.remove("fade-in");
+                document.body.style.opacity = 0;
+                setTimeout(() => {
+                    window.location.href = href; // Navigate after fade-out
+                }, 500); // Match the transition duration
+
+
+                
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Safer Driving Schools </title>
+<meta charset="UTF-8">
+<meta name="author" content="Tyler SDS">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<style>
+   
+main { 
+    color: black; /* Set the text color to black */
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 50px; /* Set a fixed height for the logo */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%; /* Full width of the page container */
+    margin: 0 auto; /* Center the slideshow */
+    overflow: hidden; /* Hide overflowing content */
+    display: flex; /* Use Flexbox for alignment */
+    justify-content: center; /* Center the slideshow horizontally */
+    align-items: center; /* Center the slideshow vertically */
+    min-height: 80vh; /* Ensure the slideshow takes up most of the viewport height */
+}
+
+.slide {
+    display: none; /* Hide all slides by default */
+    position: relative;
+}
+
+.slide-image {
+    width: 1000px; /* Set all images to 700px width */
+    height: 600px; /* Set all images to 500px height */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire area */
+    margin: 0 auto; /* Center the images */
+    display: block; /* Make images block elements for centering */
+}
+
+/* Remove specific styles since all images now use the same dimensions */
+.image-5 {
+    width: 1000px; /* Ensure consistency */
+    height: 600px; 
+    margin: 0 auto; 
+}
+
+.image-2 {
+    width: 1000px; /* Ensure consistency */
+    height: 600px; 
+    margin: 0 auto; 
+}
+
+.slide-text {
+    position: absolute;
+    bottom: 30px; /* Adjust distance from bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(17, 0, 255, 0.8); /* Blue semi-transparent background */
+    color: white;
+    padding: 15px 25px; /* Increase padding for better spacing */
+    border-radius: 15px; /* More rounded corners */
+    font-size: 1.4rem; /* Larger font size */
+    font-weight: bold; /* Make text bold */
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+    border: 2px solid white; /* Add white border */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Add shadow to the box */
+    font-family: 'Arial', sans-serif; /* Change font family */
+    letter-spacing: 1px; /* Add letter spacing */
+    transition: all 0.3s ease; /* Smooth transition effects */
+}
+
+/* Add hover effect */
+.slide-text:hover {
+    background-color: rgb(0, 123, 255, 1); /* Solid blue on hover */
+    transform: translateX(-50%) scale(1.05); /* Slightly enlarge on hover */
+}
+
+.page-container {
+    max-width: 1200px; /* Set maximum width for the container */
+    height: 600px; /* Set height for the container */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add padding inside the container */
+    background-color: #f9f9f9; /* Optional: Add background color */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow */
+}
+
+h1 {
+    color: #ffffff; /* Blue color */
+    font-size: 3.0rem; /* Larger font size */
+    text-align: center; /* Center the text */
+    font-family: 'Arial', sans-serif; /* Font family */
+    margin: 20px 0; /* Add spacing above and below */
+    text-shadow: 2px 2px 4px rgb(0, 0, 0); /* Add shadow */
+}
+   h2 {
+    color: #007BFF; /* Match your blue theme */
+    font-size: 2.5rem; /* Slightly larger than normal text */
+    margin: 30px 0; /* Add spacing above and below */
+    text-align: center; /* Center the headings */
+    font-family: 'Arial', sans-serif; /* Font family */
+    font-weight: bolder; /* Make headings bold */
+    letter-spacing: 2px; /* Add letter spacing for emphasis */
+    position: relative; /* Position relative for underline effect */
+    text-decoration: underline;
+    padding: 15px 0; /* Add padding for better spacing */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Add shadow for better visibility */
+
+   }
+
+  .blue-box-container {
+    display: flex; /* Use Flexbox to align boxes side by side */
+    gap: 20px; /* Add spacing between the boxes */
+    justify-content: center; /* Center the boxes horizontally */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin: 20px 0; /* Add spacing above and below the container */
+  }
+    .blue-box {
+        background-color: #007BFF; /* Blue background color */
+        color: rgb(255, 255, 255); /* White text color for contrast */
+        padding: 30px; /* Increase padding inside the box */
+        border-radius: 15px; /* Add rounded corners */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+        text-align: center; /* Center the text inside the blue box */
+        width: 200px; /* Set fixed width to make it square */
+        height: 200px; /* Set fixed height to make it square */
+        margin: 0 auto; /* Center the blue box horizontally */
+        display: flex; /* Use flexbox to center content */
+        align-items: center; /* Center content vertically */
+        justify-content: center; /* Center content horizontally */
+        font-size: 1rem; /* Adjust font size for readability */
+        flex-direction: column; /* Stack content vertically */
+  }
+
+  .blue-box p {
+    padding: 10px 0; /* Add vertical padding to paragraphs */
+    margin: 0; /* Remove default margin */
+    line-height: 1.4; /* Improve line spacing */
+}
+
+.blue-box h3 {
+    padding-bottom: 10px; /* Add space below headings */
+    margin: 0 0 10px 0; /* Control margin */
+}
+
+  .open-text {
+    color: #007BFF; /* Match your blue theme */
+    font-size: 2rem; /* Adjust the font size */
+    line-height: 1.6; /* Adjust line spacing for readability */
+    text-align: center; /* Center the text */
+    margin: 20px 0; /* Add spacing above and below */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* FIXED - proper syntax */
+    text-decoration: underline;
+  }
+  
+
+  .button-link {
+    display: inline-block; 
+    background-color: rgba(17, 0, 255, 0.8); /* Blue semi-transparent background */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 8px; /* Rounded corners */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center the text */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    margin-top: 15px; /* Add spacing around the button */
+    text-decoration: none; /* Remove underline from link */
+    border: white 2px solid; /* Add white border */
+  }
+.button-link:hover {
+    background-color: rgb(0, 123, 255, 1); /* Solid blue on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+
+}
+  h3 {
+    color: #ffffff; /* White color for headings */
+    font-size: 1.5rem; /* Slightly larger than normal text */
+    margin: 10px 0; /* Add spacing above and below */
+    text-align: center; /* Center the headings */
+    font-family: 'Arial', sans-serif; /* Font family */
+    text-decoration: underline;
+    text-shadow: 2px 2px 0 black; /* Add shadow for better visibility */
+  }
+
+
+    
+    .blue-box {
+        width: 280px; /* Make boxes wider on mobile */
+        height: auto; /* Allow height to adjust to content */
+        min-height: 200px; /* Set minimum height */
+        margin-bottom: 20px; /* Add space between boxes */
+    }
+
+.contact-page p {
+    font-size: 1.1rem !important;
+    line-height: 1.8;
+    text-align: center;
+    margin: 20px 15px;
+    padding: 15px;
+    background-color: transparent; /* Remove the 'b' typo */
+    border-radius: 10px;
+    color: #000000 !important;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .page-container {
+        height: auto; /* Allow container to expand naturally */
+        min-height: 280px; /* Set minimum height for slideshow */
+        margin-bottom: 30px; /* Add space below slideshow */
+        padding: 10px; /* Reduce padding for mobile */
+        display: flex; /* Use flex layout */
+        flex-direction: column; /* Stack content vertically */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    .slideshow-container {
+        min-height: 250px; /* Set appropriate height for mobile */
+        max-height: 280px; /* Prevent slideshow from getting too tall */
+        position: relative; /* Keep relative positioning */
+        z-index: 1; /* Lower z-index */
+        width: 100%; /* Full width of container */
+        margin: 0; /* Remove auto margins */
+        flex: 1; /* Allow it to fill the container */
+        overflow: hidden; /* Hide overflow */
+    }
+    
+    .slide-image {
+        width: 100% !important; /* Change from 300% to 100% */
+        height: 250px !important; /* Set consistent height */
+        max-width: 100% !important; /* Change from 300% to 100% */
+        margin: 0 auto !important; /* Keep centering */
+        object-fit: cover !important; /* Maintain aspect ratio */
+    }
+    .image-5, .image-2 {
+        width: 100% !important; /* Override desktop sizing */
+        height: 220px !important; /* Consistent mobile height */
+        max-width: 100% !important; /* Prevent overflow */
+        object-fit: cover !important; /* Maintain aspect ratio */
+    }
+
+    
+    .slide-text {
+        bottom: 10px; /* Adjust text position for smaller screens */
+        padding: 8px 12px; /* Reduce padding for mobile */
+        font-size: 1rem; /* Smaller font size for mobile */
+        border-radius: 8px; /* Adjust border radius */
+        max-width: 85%; /* Limit width to prevent overflow */
+        left: 50%; /* Center text */
+        transform: translateX(-50%); /* Center text */
+    }
+    
+    .blue-box-container {
+        margin: 30px 15px 20px 15px; /* Add left and right margins */
+        position: relative;
+        z-index: 2;
+        clear: both;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 5px; /* Add padding for extra spacing */
+        max-width: 500px;
+        margin: 30px auto; /* Center the container */;
+    }
+    
+    .blue-box {
+        width: calc(100% - 40px); /* Reduce width to account for margins */
+        max-width: 320px; /* Reduce max-width slightly */
+        height: auto;
+        min-height: 200px;
+        margin: 0 auto 20px auto; /* Center with bottom margin */
+        padding: 20px;
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    h1 {
+        font-size: 2.5rem; /* Smaller on mobile */
+    }
+    
+    h2 {
+        font-size: 2rem; /* Smaller on mobile */
+        letter-spacing: 1px; /* Reduce letter spacing */
+    }
+    
+    .open-text {
+        font-size: 1.5rem; /* Smaller on mobile */
+    }
+
+    /* Header adjustments for mobile */
+    .logo-container {
+        position: absolute;
+        top: 10px;
+        right: 10px; /* Move logo to the right */
+        text-align: right;
+        margin-bottom: 10px;
+    }
+    
+    .logo-container img {
+        width: 120px !important; /* Smaller logo on mobile */
+        height: auto;
+    }
+    
+    .contact-container {
+        position: absolute;
+        top: 60px; /* Position below the logo */
+        right: 10px; /* Move to the right */
+        text-align: right;
+        margin: 0;
+    }
+    
+    .contact-number {
+        font-size: 1.1rem;
+        color: white !important; /* Force white color */
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.5); /* Add semi-transparent background for better visibility */
+        padding: 5px 10px; /* Add padding around text */
+        border-radius: 5px; /* Rounded corners */
+        margin: 0;
+    }
+    
+    /* Adjust body padding to accommodate positioned header elements */
+    body {
+        padding-top: 100px; /* Add top padding to prevent overlap */
+    }
+    
+    h1 {
+        margin-top: 20px; /* Add margin to h1 to prevent overlap */
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .page-container {
+        height: auto; /* Allow container to expand naturally */
+        min-height: 230px; /* Set minimum height */
+        padding: 8px; /* Further reduce padding */
+        margin: 3px; /* Reduce margin */
+    }
+    
+    .slideshow-container {
+        min-height: 200px; /* Further reduce height */
+        max-height: 230px; /* Set maximum height */
+    }
+    
+    .slide-image {
+        width: 100% !important;
+        height: 180px !important; /* Smaller height for tiny screens */
+        max-width: 100% !important;
+        object-fit: cover !important;
+    }
+    
+    .image-5, .image-2 {
+        width: 100% !important;
+        height: 180px !important; /* Consistent with slide-image */
+        max-width: 100% !important;
+        object-fit: cover !important;
+    }
+    
+    .slide-text {
+        font-size: 0.9rem; /* Adjust font size */
+        padding: 6px 10px; /* Adjust padding */
+        bottom: 8px; /* Adjust position */
+        max-width: 80%; /* Limit width to prevent overflow */
+    }
+    
+    .blue-box-container {
+        margin: 30px 15px 20px 15px; /* Smaller margins for tiny screens */
+        padding: 0 5px; /* Reduce padding */
+    }
+    
+    .blue-box {
+        width: calc(100% - 30px); /* Further reduce width */
+        max-width: 280px; /* Even smaller max-width */
+        margin: 0 auto 15px auto;
+        padding: 15px; /* Reduce padding */
+    }
+    
+    h1 {
+        font-size: 2rem; /* Even smaller */
+    }
+    
+    h2 {
+        font-size: 1.5rem; /* Even smaller */
+    }
+    
+    .open-text {
+        font-size: 1.2rem; /* Even smaller */
+    }
+
+    .logo-container {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        text-align: left; /* Align logo to the left */
+    }
+    
+    .logo-container img {
+        width: 100px !important; /* Even smaller logo */
+        height: auto; /* Maintain aspect ratio */
+    }
+    
+    .contact-container {
+        top: 50px;
+        right: 5px;
+    }
+    
+    .contact-number {
+        font-size: 1rem;
+        color: white !important;
+        padding: 4px 8px;
+    }
+    
+    body {
+        padding-top: 90px; /* Adjust for smaller screens */
+    }
+}
+
+/* Desktop Navigation Styles - Override mobile styles */
+@media (min-width: 769px) {
+    /* Hide mobile menu button on desktop */
+    .nav-toggle {
+        display: none !important;
+    }
+    
+    /* Show navigation dropdown on desktop */
+    .nav-dropdown {
+        display: block !important;
+        position: static;
+        background-color: transparent;
+        box-shadow: none;
+        margin: 0;
+    }
+    
+    /* Desktop navigation styling */
+    nav {
+        margin: 20px 0;
+        z-index: 10;
+        display: flex;
+        gap: 20px;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        position: relative;
+    }
+    
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 100%;
+    }
+    
+    nav ul li {
+        margin: 0 10px;
+        display: inline;
+        border-bottom: none;
+    }
+    
+    nav ul li a {
+        text-decoration: none;
+        color: white !important; /* Force white text color */
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        background-color: #333;
+        display: inline-block;
+    }
+    
+    nav ul li a:hover {
+        background-color: #007BFF;
+        color: white !important;
+    }
+    .contact-container {
+        color: white; /* Ensure contact number is visible */
+        font-weight: bold;
+        margin-left: 20px; /* Add space from the logo */
+    }
+}
+  
+</style>
+</head>
+<body>
+
+    <h1> Safer Driving School </h1>
+   
+   <header>
+        <div class="logo-container">
+            <a href="SDS.html" class="logo">
+                <img src="images/SaferDrivingSchoolLogo.png" alt="Safer Driving School Logo" style="width:150px; height:auto;">
+            </a>
+        </div>
+        <div class="contact-container">
+            <p class="contact-number">Tel: 07956 956636</p>
+        </div>
+    </header>
+        <p>Welcome to the Safer Driving School. Here you can find information about our driving courses, instructors, and how to enroll.</p>
+        <nav>
+    <button class="nav-toggle" onclick="toggleNav()">Menu</button>
+    <div class="nav-dropdown" id="navDropdown">
+        <ul>
+            <li><a href="SDS.html">Home</a></li>
+            <li><a href="AboutSDS.html">About SDS</a></li>
+            <li><a href="prices.html">Prices</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+</nav>
+   
+<main>
+
+    <h2>Welcome to Safer Driving School</h2>
+    <p class="open-text"> Your Road to Freedom! </p>
+   
+    <!-- Page Container for Slideshow -->
+    <div class="page-container">
+        <div class="slideshow-container"> <!-- Changed from <section> to <div> -->
+            <div class="slide fade">
+                <img src="images/image-5.jpg" alt="Driving Lesson 5" class="slide-image image-5">
+                <div class="slide-text">Learn to drive with confidence!</div>
+            </div>
+
+            <div class="slide fade">
+                <img src="images/image-2.jpg" alt="Driving Lesson 2" class="slide-image image-2">
+                <div class="slide-text">Experienced instructors to guide you.</div>
+            </div>
+
+            <div class="slide fade">
+                <img src="images/SaferDrivingSchoolLogo.png" alt="safer driving" class="slide-image">
+                <div class="slide-text">Enroll today and start your journey!</div>
+            </div>
+        </div> <!-- Changed from </section> to </div> -->
+    </div>
+
+    <section>
+        <h2> Why Choose us?  </h2>
+    </section>
+
+    <div class="blue-box-container">
+        <div class="blue-box">
+            <h3> DSA APPROVED! </h3>
+            <p>
+                ​SDS has been approved by the Driving Standards Agency (DSA). We have a high First Time Pass Rate, and our sole mission is to help you to achieve your dream of driving a car! 
+            </p>
+        </div>
+       
+        <div class="blue-box">
+            <h3> Prices </h3>
+            <p> At SDS Driving School, we offer daytime lessons for £35 per hour and evening sessions for £38 per hour. To accommodate your needs! </p>
+            <a href="prices.html" class="button-link">View Prices</a>
+        </div>
+       
+        <div class="blue-box">
+            <h3> Testimonials </h3>
+            <p> Don't just take our word for it! Read what our students have to say about their experiences with SDS. </p>
+            <a href="testimonials.html" class="button-link">Read Testimonials</a>
+        </div>
+
+        <div class="blue-box">
+            <h3> Lets Get in Touch!</h3>
+            <p> Have any questions? don't hesitate to give us a call! </p>
+            <a href="contact.html" class="button-link">Contact Us</a>
+        </div>
+    </div> <!-- This closing div tag is REQUIRED for blue-box-container -->
+
+</main> <!-- Now main can close properly -->
+
+<footer>
+    <p>&copy; Est 1993 Safer Driving School. All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.body.classList.add("fade-in");
+
+        const links = document.querySelectorAll("a");
+        links.forEach(link => {
+            link.addEventListener("click", function (e) {
+                e.preventDefault(); // Prevent immediate navigation
+                const href = this.href;
+                document.body.classList.remove("fade-in");
+                document.body.style.opacity = 0;
+                setTimeout(() => {
+                    window.location.href = href; // Navigate after fade-out
+                }, 500); // Match the transition duration
+            });
+        });
+    });
+
+    let slideIndex = 0;
+
+    function showSlides() {
+        const slides = document.querySelectorAll(".slide");
+        slides.forEach(slide => (slide.style.display = "none")); // Hide all slides
+        slideIndex++;
+        if (slideIndex > slides.length) slideIndex = 1; // Reset to the first slide
+        slides[slideIndex - 1].style.display = "block"; // Show the current slide
+        setTimeout(showSlides, 3000); // Change slide every 3 seconds
+    }
+
+    document.addEventListener("DOMContentLoaded", showSlides);
+    
+    function toggleNav() {
+        const dropdown = document.getElementById('navDropdown');
+        const toggle = document.querySelector('.nav-toggle');
+        
+        dropdown.classList.toggle('show');
+        toggle.classList.toggle('active');
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        const nav = document.querySelector('nav');
+        const dropdown = document.getElementById('navDropdown');
+        const toggle = document.querySelector('.nav-toggle');
+        
+        if (!nav.contains(event.target)) {
+            dropdown.classList.remove('show');
+            toggle.classList.remove('active');
+        }
+    });
+</script>
+
+</body>
+</html>
+
