@@ -1,0 +1,576 @@
+body {
+    display: flex;
+    flex-direction: column; /* Arranges items vertically */
+    align-items: center; /* Centers items horizontally */
+    justify-content: flex-start; /* Centers items vertically */
+    min-height: 100vh; /* Full viewport height */
+    margin: 0;
+    padding: 0;
+    background-color: #293479; /* Background color */
+    color: rgb(255, 254, 254); /* Text color */
+    opacity: 0; /* Start with the page hidden */
+    transition: opacity 0.5s ease-in-out; /* Fade effect */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body.fade-in {
+    opacity: 3; /* Fade in the page */
+}
+
+h1 {
+    margin: 20px 0; /* Adds space above and below the header */
+    text-align: center; /* Centers the text horizontally */
+}
+
+/* General navigation styles */
+nav {
+    margin: 20px 0;
+    z-index: 10; /* Ensure nav stays on top */
+    display: flex; /* Makes the navigation bar a flex container */
+    gap: 20px; /* Adds space between navigation items */
+    background-color: #333; /* Background color for the nav bar */
+    padding: 10px; /* Space inside the nav bar */
+    border-radius: 5px; /* Rounded corners */
+    position: relative; /* Prevents overlapping issues */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Adds space between navigation items */
+}
+
+nav ul li {
+    margin: 0 10px;
+    display: inline; /* Ensures list items are displayed inline */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: #333; /* Background color for links */
+}
+
+nav ul li a:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+main {
+    display: block; /* Use block layout instead of flexbox */
+    width: 80%; /* Adjust the width of the main container */
+    max-width: 1200px; /* Set a maximum width */
+    margin: 20px auto; /* Center the main container horizontally */
+    padding: 20px; /* Add space inside the main container */
+    background-color: #f4f4f4; /* Light gray background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+footer {
+    text-align: center; /* Centers footer text */
+    padding: 10px; /* Space inside the footer */
+    background-color: #333; /* Footer background color */
+    color: white; /* Footer text color */
+}
+
+.map-container {
+    margin-top: 20px; /* Adds space above the map */
+    text-align: center; /* Centers the map heading */
+    justify-content: center; /* Centers the map container */
+    align-items: center; /* Centers the map container */
+}
+
+.map-container iframe {
+    width: 110%; /* Makes the map responsive */
+    max-width: 600px; /* Maximum width for the map */
+    height: 400px; /* Fixed height for the map */
+    border-radius: 10px; /* Adds rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+}
+
+.main-box {
+    width: 80%; /* Adjust the width of the main box */
+    max-width: 1200px; /* Set a maximum width */
+    margin: 10px auto; /* Center the box horizontally and add vertical spacing */
+    padding: 0px; /* Add space inside the box */
+    background-color: #f9f9f9; /* Optional: Add a background color */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow effect */
+    color: black;
+}
+
+html, body {
+    height: auto; /* FIXED: Removed 'n' from 'height:n auto' */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.page-header {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: space-between; /* Separate the logo and contact number */
+    align-items: center; /* Align items vertically in the center */
+    
+    padding: 10px 20px; /* Add padding for spacing */
+}
+
+.logo-container {
+    display: flex; /* Use Flexbox for the logo container */
+    align-items: center; /* Center the logo vertically */
+}
+
+.contact-container {
+    display: flex; /* Use Flexbox for the contact container */
+    align-items: center; /* Center the contact number vertically */
+    text-align: right; /* Align the contact number to the right */
+}
+
+.contact-number {
+    font-size: 1.2rem; /* Adjust the font size */
+    font-family: Arial, sans-serif; /* Set the font */
+    color: #ffffff; /* Set the text color */
+    margin-left: 10px; /* FIXED: Added 'px' unit to margin-left */
+}
+
+/* Add this to your existing mobile responsive styles */
+@media (max-width: 768px) {
+    /* Navigation styles for mobile */
+    nav {
+        position: relative;
+        width: 100%;
+        margin: 20px 0;
+        padding: 0;
+        background-color: transparent;
+    }
+    
+    /* Dropdown toggle button */
+    .nav-toggle {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        position: relative;
+    }
+    
+    .nav-toggle:after {
+        content: '▼';
+        position: absolute;
+        right: 20px;
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-toggle.active:after {
+        transform: rotate(180deg);
+    }
+    
+    /* Dropdown menu */
+    .nav-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        margin-top: 5px;
+    }
+    
+    .nav-dropdown.show {
+        display: block;
+        animation: slideDown 0.3s ease;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 10px 0;
+        width: 100%;
+    }
+    
+    nav ul li {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+    
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 15px 20px;
+        background-color: transparent;
+        color: #007BFF;
+        text-decoration: none;
+        border-radius: 0;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        margin: 0;
+    }
+    
+    nav ul li a:hover {
+        background-color: #f8f9fa;
+        color: #0056b3;
+    }
+    
+    /* Hide desktop nav styles */
+    nav {
+        background-color: transparent;
+        padding: 0;
+        gap: 0;
+    }
+    
+    /* Header adjustments for mobile */
+    .logo-container {
+        position: absolute;
+        top: 10px;
+        left: 10px; /* Change from right: 10px to left: 10px */
+        text-align: left; /* Change from right to left */
+        margin-bottom: 10px;
+    }
+    
+    .logo-container img {
+        width: 120px !important;
+        height: auto;
+    }
+    
+    .contact-container {
+        position: absolute;
+        top: 60px; /* Position below the logo */
+        right: 10px; /* Keep contact number on the right */
+        text-align: right;
+        margin: 0;
+    }
+    
+    .contact-number {
+        font-size: 1.1rem;
+        color: white !important;
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.5); /* Add semi-transparent background for better visibility */
+        padding: 5px 10px; /* Add padding around text */
+        border-radius: 5px; /* Rounded corners */
+        margin: 0;
+    }
+    
+    /* Adjust body padding to accommodate positioned header elements */
+    body {
+        padding-top: 100px; /* Add top padding to prevent overlap */
+    }
+    
+    /* Welcome text adjustments */
+    p {
+        text-align: center;
+        margin: 15px 0;
+        padding: 0 10px;
+    }
+
+    .page-container {
+        height: auto; /* Allow container to expand naturally */
+        min-height: 350px; /* Set minimum height for slideshow */
+        margin-bottom: 30px; /* Add space below slideshow */
+        padding: 15px; /* Reduce padding for mobile */
+        display: flex; /* Use flex layout */
+        flex-direction: column; /* Stack content vertically */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    .slideshow-container {
+        min-height: 300px; /* Set appropriate height for mobile */
+        max-height: 350px; /* Prevent slideshow from getting too tall */
+        position: relative; /* Keep relative positioning */
+        z-index: 1; /* Lower z-index */
+        width: 100%; /* Full width of container */
+        margin: 0; /* Remove auto margins */
+        flex: 1; /* Allow it to fill the container */
+        overflow: hidden; /* Hide overflow */
+    }
+    
+    .slide-image {
+        width: 100%; /* Make images responsive */
+        height: 250px; /* Set consistent height for mobile */
+        max-width: 100%; /* Ensure images don't overflow */
+        object-fit: cover; /* Maintain aspect ratio */
+    }
+    
+    .slide-text {
+        bottom: 15px; /* Adjust text position for smaller screens */
+        padding: 10px 15px; /* Reduce padding for mobile */
+        font-size: 1.1rem; /* Smaller font size for mobile */
+        border-radius: 10px; /* Adjust border radius */
+    }
+    
+    .blue-box-container {
+        margin-top: 50px; /* Add extra space above blue boxes */
+        position: relative; /* Ensure proper positioning */
+        z-index: 2; /* Higher z-index than slideshow */
+        clear: both; /* Clear any floating elements */
+        flex-direction: column; /* Stack boxes vertically */
+        align-items: center; /* Center the boxes */
+    }
+    
+    .blue-box {
+        width: 90%; /* Make boxes responsive */
+        max-width: 350px; /* Set maximum width */
+        height: auto; /* Allow height to adjust to content */
+        min-height: 200px; /* Set minimum height */
+        margin-bottom: 20px; /* Add space between boxes */
+        padding: 20px; /* Adjust padding for mobile */
+    }
+    
+    h1 {
+        font-size: 2.5rem; /* Smaller on mobile */
+        margin-top: 20px; /* Add margin to prevent overlap */
+    }
+    
+    h2 {
+        font-size: 2rem; /* Smaller on mobile */
+        letter-spacing: 1px; /* Reduce letter spacing */
+    }
+    
+    .open-text {
+        font-size: 1.5rem; /* Smaller on mobile */
+    }
+
+    /* Header adjustments for mobile */
+    .logo-container {
+        position: absolute;
+        top: 10px;
+        left: 10px; /* Change from right: 10px to left: 10px */
+        text-align: left; /* Change from right to left */
+        margin-bottom: 10px;
+    }
+    
+    .logo-container img {
+        width: 120px !important; /* Smaller logo on mobile */
+        height: auto;
+    }
+    
+    .contact-container {
+        position: absolute;
+        top: 60px; /* Position below the logo */
+        right: 10px; /* Keep contact number on the right */
+        text-align: right;
+        margin: 0;
+    }
+    
+    .contact-number {
+        font-size: 1.1rem;
+        color: white !important; /* Force white color */
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.5); /* Add semi-transparent background for better visibility */
+        padding: 5px 10px; /* Add padding around text */
+        border-radius: 5px; /* Rounded corners */
+        margin: 0;
+    }
+    
+    /* Adjust body padding to accommodate positioned header elements */
+    body {
+        padding-top: 100px; /* Add top padding to prevent overlap */
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .nav-toggle {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+    
+    nav ul li a {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+    
+    .logo-container img {
+        width: 120px !important;
+    }
+    
+    .contact-number {
+        font-size: 1rem;
+    }
+
+    .page-container {
+        height: auto; /* Allow container to expand naturally */
+        min-height: 300px; /* Set minimum height */
+        padding: 10px; /* Further reduce padding */
+        margin: 5px; /* Reduce margin */
+    }
+    
+    .slideshow-container {
+        min-height: 250px; /* Further reduce height */
+        max-height: 300px; /* Set maximum height */
+    }
+    
+    .slide-image {
+        height: 200px; /* Further reduce height */
+    }
+    
+    .slide-text {
+        font-size: 0.9rem; /* Adjust font size */
+        padding: 8px 12px; /* Adjust padding */
+    }
+    
+    .blue-box {
+        width: 95%; /* Almost full width */
+        max-width: 300px;
+        margin: 10px auto 20px auto; /* Center the boxes */
+        padding: 15px; /* Reduce padding further */
+    }
+    
+    h1 {
+        font-size: 2rem; /* Even smaller */
+    }
+    
+    h2 {
+        font-size: 1.5rem; /* Even smaller */
+    }
+    
+    .open-text {
+        font-size: 1.2rem; /* Even smaller */
+    }
+
+    .logo-container {
+        top: 5px;
+        left: 5px; /* Change from right: 5px to left: 5px */
+    }
+    
+    .logo-container img {
+        width: 100px !important; /* Even smaller logo */
+    }
+    
+    .contact-container {
+        top: 50px;
+        right: 5px; /* Keep contact number on the right */
+    }
+    
+    .contact-number {
+        font-size: 1rem;
+        color: white !important;
+        padding: 4px 8px;
+    }
+    
+    body {
+        padding-top: 90px; /* Adjust for smaller screens */
+    }
+}
+
+/* Desktop Navigation Styles - Override mobile styles */
+@media (min-width: 769px) {
+    /* Hide mobile menu button on desktop */
+    .nav-toggle {
+        display: none !important;
+    }
+    
+    /* Show navigation dropdown on desktop */
+    .nav-dropdown {
+        display: block !important;
+        position: static;
+        background-color: transparent;
+        box-shadow: none;
+        margin: 0;
+    }
+    
+    /* Desktop navigation styling */
+    nav {
+        margin: 20px 0;
+        z-index: 10;
+        display: flex;
+        gap: 20px;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        position: relative;
+    }
+    
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 100%;
+    }
+    
+    nav ul li {
+        margin: 0 10px;
+        display: inline;
+        border-bottom: none;
+    }
+    
+    nav ul li a {
+        text-decoration: none;
+        color: white !important; /* Force white text color */
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        background-color: #333;
+        display: inline-block;
+    }
+    
+    nav ul li a:hover {
+        background-color: #007BFF;
+        color: white !important;
+    }
+    
+    .contact-container {
+        color: white; /* Ensure contact number is visible */
+        font-weight: bold;
+        margin-left: 20px; /* Add space from the logo */
+    }
+    
+    /* Reset mobile positioning for desktop */
+    .logo-container,
+    .contact-container {
+        position: static;
+    }
+    
+    body {
+        padding-top: 0; /* Remove mobile padding */
+    }
+}
+
+
+
+
+
+
